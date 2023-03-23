@@ -1,0 +1,26 @@
+{
+  "name": "fe-ui",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "description": "fe-ui",
+  "main": "index.ts",
+  "module": "index.ts",
+  "publishConfig": {
+    "main": "dist/lib/index.js",
+    "module": "dist/es/index.mjs"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "build:fe": "gulp -f scripts/build/index.ts",
+    "publish:fe": "gulp -f scripts/publish/index.ts"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
