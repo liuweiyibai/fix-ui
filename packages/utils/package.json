@@ -2,13 +2,18 @@
   "name": "@fe-ui/utils",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/lib/index.js",
-  "module": "./dist/es/index.js",
+  "main": "index.ts",
+  "module": "index.ts",
+  "publishConfig": {
+    "main": "./dist/lib/index.js",
+    "module": "./dist/es/index.js"
+  },
   "files": [
     "dist",
     "README.md"
   ],
   "scripts": {
+    "dev": "vite dev",
     "build": "vite build"
   },
   "keywords": [],

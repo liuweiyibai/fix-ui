@@ -2,13 +2,14 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
 import DefineOptions from 'unplugin-vue-define-options/vite';
+import postcss from 'rollup-plugin-postcss';
 
 export default defineConfig({
   build: {
     // 打包文件目录
     outDir: 'es',
     // 压缩
-    // minify: false,
+    minify: false,
     rollupOptions: {
       // 打包时忽略部分文件
       external: ['vue', /\.less/, '@fe-ui/utils'],
@@ -44,6 +45,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    DefineOptions(),
     vue(),
     dts({
       entryRoot: 'src',
@@ -52,7 +54,6 @@ export default defineConfig({
       // , 如果不配置, 你也可以在 components 下新建tsconfig.json
       tsConfigFilePath: '../../tsconfig.json',
     }),
-    DefineOptions(),
     {
       name: 'style',
       generateBundle(_config, bundle) {
@@ -61,7 +62,7 @@ export default defineConfig({
 
         for (const key of keys) {
           const bundler: any = bundle[key as any];
-          // rollup内置方法,将所有输出文件code中的.less换成.css,因为我们当时没有打包less文件
+          // rollup内置方法,将所有输出文件(js文件)code中的.less换成.css,因为我们当时没有打包less文件
 
           this.emitFile({
             type: 'asset',

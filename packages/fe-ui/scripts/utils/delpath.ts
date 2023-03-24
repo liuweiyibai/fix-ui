@@ -1,8 +1,8 @@
 import fs from 'fs';
 import { resolve } from 'path';
-import { pkgPath } from './paths';
-//保留的文件
-const stayFile = ['package.json', 'README.md'];
+
+// 保留的文件
+const stayFile: any = [];
 
 const delPath = async (path: string) => {
   let files: string[] = [];
@@ -23,8 +23,6 @@ const delPath = async (path: string) => {
         }
       }
     });
-
-    if (path != `${pkgPath}/fe-ui/dist`) fs.rmdirSync(path);
   }
 };
 export default delPath;

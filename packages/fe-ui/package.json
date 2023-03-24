@@ -13,8 +13,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "build:fe": "gulp -f scripts/build/index.ts",
-    "publish:fe": "gulp -f scripts/publish/index.ts"
+    "build:fe": "gulp -f scripts/build/index.ts"
   },
   "files": [
     "dist",
@@ -22,5 +21,8 @@
   ],
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@fe-ui/utils": "workspace:^1.0.0"
+  }
 }

@@ -1,34 +1,38 @@
-import delPath from '../utils/delpath';
 import { series, parallel, src, dest } from 'gulp';
-import { pkgPath, componentPath } from '../utils/paths';
-import less from 'gulp-less';
 import autoprefixer from 'gulp-autoprefixer';
+import less from 'gulp-less';
+import { resolve } from 'path';
+import delPath from '../utils/delpath';
 import run from '../utils/run';
+
+// 组件库根目录
+export const feUiPackage = resolve(__dirname, '../../');
 
 // 删除构建产物
 export const removeDist = () => {
-  return delPath(`${pkgPath}/dist`);
+  console.log(`==============删除目录${feUiPackage}/dist============`);
+  return delPath(`${feUiPackage}/dist`);
 };
-console.log(componentPath);
 
 // 打包样式
 export const buildStyle = () => {
-  return src(`${componentPath}/components/**/style/**.less`)
+  console.log(`==============从${feUiPackage}/components构建样式============`);
+  return src(`${feUiPackage}/components/**/style/**.less`)
     .pipe(less())
     .pipe(autoprefixer())
-    .pipe(dest(`${pkgPath}/fe-ui/dist/lib/src`))
-    .pipe(dest(`${pkgPath}/fe-ui/dist/es/src`));
+    .pipe(dest(`${feUiPackage}/dist/lib/components`))
+    .pipe(dest(`${feUiPackage}/dist/es/components`));
 };
 
 // 打包组件
 export const buildComponent = async () => {
-  run('pnpm run build', componentPath);
+  await run('pnpm run build', feUiPackage);
 };
 
-export default series(
-  async () => removeDist(),
-  parallel(
-    async () => buildStyle(),
-    async () => buildComponent()
-  )
-);
+async function task() {
+  await removeDist();
+  await buildComponent();
+  buildStyle();
+}
+
+export default task;

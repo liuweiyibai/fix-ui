@@ -1,0 +1,11 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
+  "changelog": "@changesets/cli/changelog", // 更新日志生成函数的加载地址
+  "commit": true, //自动提交version的改动
+  "fixed": [], //捆绑发布的包
+  "linked": [],
+  "access": "restricted",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch", //是否主动更新package的依赖，patch、minor
+  "ignore": [] //指定不发布的包
+}

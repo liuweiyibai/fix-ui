@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:ui": "pnpm --filter fe-ui build:fe",
+    "build:utils": "pnpm --filter @fe-utils build",
+    "build": "npm run build:*",
+    "change": "changeset add",
+    "change:version": "changeset version",
+    "release": "pnpm build && pnpm release:only",
+    "release:only": "changeset publish"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@changesets/cli": "^2.26.1",
     "@types/gulp": "^4.0.10",
     "@types/gulp-autoprefixer": "^0.0.33",
     "@types/gulp-less": "^0.0.32",
