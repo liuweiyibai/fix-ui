@@ -3,3 +3,4 @@ cache
 es
 lib
 **/playground/components.d.ts
+dist
