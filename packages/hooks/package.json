@@ -1,0 +1,26 @@
+{
+  "name": "@fe-ui/hooks",
+  "version": "1.0.0",
+  "description": "hooks",
+  "main": "index.ts",
+  "module": "index.ts",
+  "publishConfig": {
+    "main": "./dist/lib/index.js",
+    "module": "./dist/es/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "echarts": "^5.4.2",
+    "mitt": "^3.0.0"
+  }
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="fe-table"></div>
+  <div class="fe-table">2222</div>
 </template>
 <script lang="ts" setup>
 import './style/index.less';
