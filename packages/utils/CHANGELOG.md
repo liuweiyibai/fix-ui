@@ -1,5 +1,11 @@
 # @fe-ui/utils
 
+## 1.1.1
+
+### Patch Changes
+
+- 5997cc2: 更新目录名称
+
 ## 1.1.0
 
 ### Minor Changes
