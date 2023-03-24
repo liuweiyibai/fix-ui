@@ -1,5 +1,11 @@
 # fe-ui
 
+## 1.1.2
+
+### Patch Changes
+
+- e0849a5: 更改 ui 构建配置
+
 ## 1.1.1
 
 ### Patch Changes
