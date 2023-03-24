@@ -1,8 +1,8 @@
 import DefaultTheme from 'vitepress/theme';
-import fe from 'fe-ui';
+import feui from '@fe-ui/ui';
 export default {
   ...DefaultTheme,
   enhanceApp: async ({ app }) => {
-    app.use(fe);
+    app.use(feui);
   },
 };

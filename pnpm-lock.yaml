@@ -42,12 +42,13 @@ importers:
 
   packages/playground:
     specifiers:
+      '@fe-ui/ui': workspace:^1.1.2
       '@vitejs/plugin-vue': ^4.1.0
-      fe-ui: workspace:^1.0.0
       vite: ^4.2.1
+    dependencies:
+      '@fe-ui/ui': link:../ui
     devDependencies:
       '@vitejs/plugin-vue': 4.1.0_vite@4.2.1
-      fe-ui: link:../..
       vite: 4.2.1
 
   packages/site:
@@ -60,7 +61,7 @@ importers:
 
   packages/ui:
     specifiers:
-      '@fe-ui/utils': workspace:^1.1.0
+      '@fe-ui/utils': workspace:^1.1.1
     devDependencies:
       '@fe-ui/utils': link:../utils
 

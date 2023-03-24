@@ -2,14 +2,13 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import dts from 'vite-plugin-dts';
 import DefineOptions from 'unplugin-vue-define-options/vite';
-import postcss from 'rollup-plugin-postcss';
 
 export default defineConfig({
   build: {
     // 打包文件目录
-    outDir: 'es',
+    // outDir: 'es',
     // 压缩
-    minify: false,
+    // minify: false,
     rollupOptions: {
       // 打包时忽略部分文件
       external: ['vue', /\.less/, '@fe-ui/utils'],
@@ -45,7 +44,6 @@ export default defineConfig({
     },
   },
   plugins: [
-    DefineOptions(),
     vue(),
     dts({
       entryRoot: 'src',
@@ -54,6 +52,7 @@ export default defineConfig({
       // , 如果不配置, 你也可以在 components 下新建tsconfig.json
       tsConfigFilePath: '../../tsconfig.json',
     }),
+    DefineOptions(),
     {
       name: 'style',
       generateBundle(_config, bundle) {

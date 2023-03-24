@@ -4,7 +4,7 @@
 <script lang="ts" setup>
 import './style/index.less';
 import { computed } from 'vue';
-defineOptions({ name: 'fe-button' });
+defineOptions({ name: 'fe-table' });
 type ButtonProps = {
   type?: string;
 };

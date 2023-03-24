@@ -43,6 +43,10 @@ pm2 start C:\develop\nvm\npm\node_modules\verdaccio\bin\verdaccio
 
 ```
 
-```
+发布顺序
 
+```bash
+pnpm run change
+pnpm run change:version
+pnpm run release
 ```
