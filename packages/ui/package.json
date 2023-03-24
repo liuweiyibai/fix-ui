@@ -1,7 +1,6 @@
 {
-  "name": "fe-ui",
+  "name": "@fe-ui/ui",
   "version": "1.1.0",
-  "private": false,
   "type": "module",
   "description": "fe-ui",
   "main": "index.ts",
@@ -13,7 +12,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "build:fe": "gulp -f scripts/build/index.ts"
+    "build:ui": "gulp -f scripts/build/index.ts"
   },
   "files": [
     "dist",

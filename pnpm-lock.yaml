@@ -40,12 +40,6 @@ importers:
       vite-plugin-dts: 1.4.1_h6rrpcx33yr4dcgxzju5ogtziu
       vue: 3.2.36
 
-  packages/fe-ui:
-    specifiers:
-      '@fe-ui/utils': workspace:^1.0.0
-    devDependencies:
-      '@fe-ui/utils': link:../utils
-
   packages/playground:
     specifiers:
       '@vitejs/plugin-vue': ^4.1.0
@@ -53,18 +47,22 @@ importers:
       vite: ^4.2.1
     devDependencies:
       '@vitejs/plugin-vue': 4.1.0_vite@4.2.1
-      fe-ui: link:../fe-ui
+      fe-ui: link:../..
       vite: 4.2.1
 
   packages/site:
     specifiers:
-      fe-ui: workspace:^1.0.0
       vitepress: 1.0.0-alpha.61
       vue: ^3.2.47
     devDependencies:
-      fe-ui: link:../fe-ui
       vitepress: 1.0.0-alpha.61
       vue: 3.2.47
+
+  packages/ui:
+    specifiers:
+      '@fe-ui/utils': workspace:^1.1.0
+    devDependencies:
+      '@fe-ui/utils': link:../utils
 
   packages/utils:
     specifiers: {}
