@@ -1,5 +1,11 @@
 # @fe-ui/hooks
 
+## 1.0.2
+
+### Patch Changes
+
+- a1b6ab5: 添加构建命令
+
 ## 1.0.1
 
 ### Patch Changes
