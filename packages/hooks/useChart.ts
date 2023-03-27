@@ -1,8 +1,29 @@
 import { nextTick, onMounted, onUnmounted, Ref, unref } from 'vue';
 import type { EChartsOption } from 'echarts';
-import echarts from './utils/echarts';
-import { RenderType, ThemeType } from './utils/echarts';
 import { SVGRenderer, CanvasRenderer } from 'echarts/renderers';
+import { echarts } from '@fe-ui/utils';
+
+export enum RenderType {
+  SVGRenderer = 'SVGRenderer',
+  CanvasRenderer = 'CanvasRenderer',
+}
+export enum ThemeType {
+  Light = 'light',
+  Dark = 'dark',
+  Default = 'default',
+}
+export interface AnimationType {
+  enable?: boolean;
+  styles?: {
+    [attr: string]: string;
+  };
+}
+export interface UseChartsOptionType {
+  autoChartSize?: boolean;
+  animation?: AnimationType;
+  render?: RenderType;
+  theme?: ThemeType;
+}
 
 export default function useChart(
   elRef: Ref<HTMLDivElement>,

@@ -8,6 +8,7 @@ import {
   PictorialBarChart,
   RadarChart,
   ScatterChart,
+  FunnelChart,
 } from 'echarts/charts';
 
 import {
@@ -25,6 +26,7 @@ import {
   TimelineComponent,
   CalendarComponent,
   GraphicComponent,
+  DatasetComponent,
 } from 'echarts/components';
 
 echarts.use([
@@ -49,30 +51,8 @@ echarts.use([
   CalendarComponent,
   GraphicComponent,
   ScatterChart,
-  // map3D,
-  // geo3D,
+  FunnelChart,
+  DatasetComponent,
 ]);
 
 export default echarts;
-
-export enum RenderType {
-  SVGRenderer = 'SVGRenderer',
-  CanvasRenderer = 'CanvasRenderer',
-}
-export enum ThemeType {
-  Light = 'light',
-  Dark = 'dark',
-  Default = 'default',
-}
-export interface AnimationType {
-  enable?: boolean;
-  styles?: {
-    [attr: string]: string;
-  };
-}
-export interface UseChartsOptionType {
-  autoChartSize?: boolean;
-  animation?: AnimationType;
-  render?: RenderType;
-  theme?: ThemeType;
-}
