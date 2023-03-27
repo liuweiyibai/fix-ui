@@ -6,6 +6,7 @@
   "scripts": {
     "build:ui": "pnpm --filter @fe-ui/ui build:ui",
     "build:utils": "pnpm --filter @fe-ui/utils build",
+    "build:hooks": "pnpm --filter @fe-ui/hooks build",
     "gen": "pnpm run \"/^build:.*/\"",
     "change": "changeset add",
     "change:version": "changeset version",
