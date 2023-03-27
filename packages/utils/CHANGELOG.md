@@ -1,5 +1,11 @@
 # @fe-ui/utils
 
+## 1.1.2
+
+### Patch Changes
+
+- ce229e4: 添加 hooks 模块
+
 ## 1.1.1
 
 ### Patch Changes

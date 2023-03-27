@@ -1,6 +1,6 @@
 {
   "name": "playground",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "private": true,
@@ -18,6 +18,6 @@
     "vite": "^4.2.1"
   },
   "dependencies": {
-    "@fe-ui/ui": "workspace:^1.1.2"
+    "@fe-ui/ui": "workspace:^1.1.3"
   }
 }
