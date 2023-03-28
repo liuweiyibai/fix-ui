@@ -1,7 +1,7 @@
 ---
 layout: home
 
-title: fe-ui
+title: fix-ui
 titleTemplate: 常用的 utils 和 vue 组件
 
 hero:
@@ -9,7 +9,7 @@ hero:
   tagline: 一个基于 Vitepress 的主题插件，它可以帮助你在编写文档的时候增加 Vue 示例。
   image:
     src: /logo.svg
-    alt: fe-ui
+    alt: fix-ui
   actions:
     - theme: brand
       text: 快速开始

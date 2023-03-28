@@ -1,12 +1,12 @@
 {
-  "name": "fe-ui",
+  "name": "fix-ui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:ui": "pnpm --filter @fe-ui/ui build:ui",
-    "build:utils": "pnpm --filter @fe-ui/utils build",
-    "build:hooks": "pnpm --filter @fe-ui/hooks build",
+    "build:ui": "pnpm --filter @fix-ui/ui build:ui",
+    "build:utils": "pnpm --filter @fix-ui/utils build",
+    "build:hooks": "pnpm --filter @fix-ui/hooks build",
     "gen": "pnpm run \"/^build:.*/\"",
     "change": "changeset add",
     "change:version": "changeset version",

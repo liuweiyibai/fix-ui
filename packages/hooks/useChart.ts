@@ -1,7 +1,7 @@
 import { nextTick, onMounted, onUnmounted, Ref, unref } from 'vue';
 import type { EChartsOption } from 'echarts';
 import { SVGRenderer, CanvasRenderer } from 'echarts/renderers';
-import { echarts } from '@fe-ui/utils';
+import { echarts } from '@fix-ui/utils';
 
 export enum RenderType {
   SVGRenderer = 'SVGRenderer',

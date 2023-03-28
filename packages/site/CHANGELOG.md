@@ -6,8 +6,8 @@
 
 - ce229e4: 添加 hooks 模块
 - Updated dependencies [ce229e4]
-  - @fe-ui/ui@1.1.3
-  - @fe-ui/utils@1.1.2
+  - @fix-ui/ui@1.1.3
+  - @fix-ui/utils@1.1.2
 
 ## 1.1.1
 

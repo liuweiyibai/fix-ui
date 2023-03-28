@@ -4,35 +4,35 @@ import {
   SideEffectsInfo,
 } from 'unplugin-vue-components';
 
-type FeUiResolverOptions = {
+type FixUiResolverOptions = {
   exclude?: RegExp;
 };
 
 function getSideEffects(partialName: string): SideEffectsInfo | undefined {
-  return [`@fe-ui/ui/components/${partialName}/style/index.less`];
+  return [`@fix-ui/ui/components/${partialName}/style/index.less`];
 }
 
 /**
  * 本地测试的 resolver
- * Resolver for fe-ui
+ * Resolver for fix-ui
  * @link https://element.eleme.cn/#/zh-CN
- * @version @element-ui ^2.15.3, @vue ^3.2.0
- * @author @nabaonan
+ * @version @fix-ui ^1.0.0, @vue ^3.2.0
+ * @author @liuweiyibai
  */
-export function FeUiResolver(
-  options: FeUiResolverOptions = {}
+export function FixUiResolver(
+  options: FixUiResolverOptions = {}
 ): ComponentResolver {
   return {
     type: 'component',
     resolve: (name: string) => {
       if (options.exclude && name.match(options.exclude)) return;
 
-      if (/^Fe[A-Z]/.test(name)) {
+      if (/^Fix[A-Z]/.test(name)) {
         const compName = name.slice(2);
         const partialName = kebabCase(compName);
 
         return {
-          from: `@fe-ui/ui/components/${partialName}`,
+          from: `@fix-ui/ui/components/${partialName}`,
           sideEffects: getSideEffects(partialName),
         };
       }

@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme';
-import feui from '@fe-ui/ui';
+import feui from '@fix-ui/ui';
 
 export default {
   ...DefaultTheme,

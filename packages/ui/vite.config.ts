@@ -11,7 +11,7 @@ export default defineConfig({
     // minify: false,
     rollupOptions: {
       // 打包时忽略部分文件
-      external: ['vue', /\.less/, '@fe-ui/utils'],
+      external: ['vue', /\.less/, '@fix-ui/utils'],
       input: ['index.ts'],
       output: [
         {
@@ -40,7 +40,7 @@ export default defineConfig({
     },
     lib: {
       entry: './index.ts',
-      name: 'fe-ui',
+      name: 'fix-ui',
     },
   },
   plugins: [

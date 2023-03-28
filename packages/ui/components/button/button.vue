@@ -1,17 +1,17 @@
 <template>
-  <button class="fe-button" :class="buttonStyle"><slot /></button>
+  <button class="fix-button" :class="buttonStyle"><slot /></button>
 </template>
 
 <script lang="ts" setup>
 import './style/index.less';
 import { computed } from 'vue';
-defineOptions({ name: 'fe-button' });
+defineOptions({ name: 'fix-button' });
 type ButtonProps = {
   type?: string;
 };
 const buttonProps = defineProps<ButtonProps>();
 
 const buttonStyle = computed(() => {
-  return { [`fe-button--${buttonProps.type}`]: buttonProps.type };
+  return { [`fix-button--${buttonProps.type}`]: buttonProps.type };
 });
 </script>

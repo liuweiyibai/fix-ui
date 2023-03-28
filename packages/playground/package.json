@@ -18,6 +18,6 @@
     "vite": "^4.2.1"
   },
   "dependencies": {
-    "@fe-ui/ui": "workspace:^1.1.3"
+    "@fix-ui/ui": "workspace:^1.1.3"
   }
 }

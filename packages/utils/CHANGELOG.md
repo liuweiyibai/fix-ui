@@ -1,4 +1,4 @@
-# @fe-ui/utils
+# @fix-ui/utils
 
 ## 1.1.2
 

@@ -2,9 +2,9 @@ import { defineConfig } from 'vitepress';
 import DefineOptions from 'unplugin-vue-define-options/vite';
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/fe-ui/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/fix-ui/' : '/',
   themeConfig: {
-    siteTitle: 'fe-ui',
+    siteTitle: 'fix-ui',
     nav: [
       { text: '指南', link: '/guide/index' },
       { text: '组件', link: '/components/button/' },
@@ -43,7 +43,7 @@ export default defineConfig({
       ],
     },
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/liuweiyibai/fe-ui' },
+      { icon: 'github', link: 'https://github.com/liuweiyibai/fix-ui' },
     ],
   },
   vite: {

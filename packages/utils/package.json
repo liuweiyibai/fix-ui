@@ -1,5 +1,5 @@
 {
-  "name": "@fe-ui/utils",
+  "name": "@fix-ui/utils",
   "version": "1.1.2",
   "description": "",
   "main": "index.ts",
@@ -20,6 +20,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "echarts": "^5.4.2"
+    "axios": "^1.3.4",
+    "echarts": "^5.4.2",
+    "json-bigint": "^1.0.0",
+    "vue3-toastify": "^0.1.6"
+  },
+  "devDependencies": {
+    "@types/json-bigint": "^1.0.1"
   }
 }

@@ -3,5 +3,5 @@
 ## 安装工作区依赖
 
 ```bash
-pnpm i -D @fe-ui/utils
+pnpm i -D @fix-ui/utils
 ```

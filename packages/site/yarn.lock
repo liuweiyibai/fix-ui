@@ -263,14 +263,14 @@
   resolved "http://localhost:4873/@esbuild/win32-x64/-/win32-x64-0.17.12.tgz#3a11d13e9a5b0c05db88991b234d8baba1f96487"
   integrity sha512-JOOxw49BVZx2/5tW3FqkdjSD/5gXYeVGPDcB0lvap0gLQshkh1Nyel1QazC+wNxus3xPlsYAgqU1BUmrmCvWtw==
 
-"@fe-ui/ui@^1.1.2":
+"@fix-ui/ui@^1.1.2":
   version "1.1.2"
-  resolved "http://localhost:4873/@fe-ui/ui/-/ui-1.1.2.tgz#565c674e56c405d2e710aee6522514f13874aab7"
+  resolved "http://localhost:4873/@fix-ui/ui/-/ui-1.1.2.tgz#565c674e56c405d2e710aee6522514f13874aab7"
   integrity sha512-NUvkzUqSy3e75N2hWSdwd0O4H4ZZ5hbfIKHQEKHzmsSG9hRnjdzbMBTL24gZyopJKizwwz+4EdNS0J4TjUciCA==
 
-"@fe-ui/utils@^1.1.1":
+"@fix-ui/utils@^1.1.1":
   version "1.1.1"
-  resolved "http://localhost:4873/@fe-ui/utils/-/utils-1.1.1.tgz#41e1ec550679bc114b225649e55dc3dc87a3dd5a"
+  resolved "http://localhost:4873/@fix-ui/utils/-/utils-1.1.1.tgz#41e1ec550679bc114b225649e55dc3dc87a3dd5a"
   integrity sha512-gxQLK8OuT9YhQerdG0KZi62MJJsfqtijGNqRZtAbXWmvPoPLgJ72AWeWWXj7nyXAkAirHxbCptdQjHOYB9sKHQ==
 
 "@types/web-bluetooth@^0.0.16":

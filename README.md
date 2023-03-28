@@ -1,12 +1,12 @@
-# fe-ui
+# fix-ui
 
 ## 搭建流程
 
 1. 初始化
 
    ```bash
-   mkdir fe-ui
-   cd fe-ui
+   mkdir fix-ui
+   cd fix-ui
    pnpm init
    ```
 
@@ -20,6 +20,8 @@ https://www.jianshu.com/p/7470f49931cd
 https://juejin.cn/post/7098609682519949325
 
 yarn add 软件名 --registry https://registry.npm.taobao.org/
+yarn add 软件名 --registry http://localhost:4873/
+yarn add @fix-ui/hooks --registry http://localhost:4873/
 
 ```bash
 # win 下 pm2 启动 verdaccio
@@ -41,14 +43,6 @@ pm2 start C:\develop\nvm\npm\node_modules\verdaccio\bin\verdaccio
 "ignore": [] //指定不发布的包
 }
 
-```
-
-发布顺序
-
-```bash
-pnpm run change
-pnpm run change:version
-pnpm run release
 ```
 
 <!-- ---

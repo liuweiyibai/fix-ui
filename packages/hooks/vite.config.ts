@@ -30,7 +30,7 @@ export default defineConfig({
     },
     lib: {
       entry: './index.ts',
-      name: '@fe-ui/hooks',
+      name: '@fix-ui/hooks',
     },
   },
 

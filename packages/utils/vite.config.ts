@@ -15,7 +15,7 @@ export default defineConfig({
           //让打包目录和我们目录对应
           preserveModules: true,
           //配置打包根目录
-          dir: resolve(__dirname, './dist/es')
+          dir: resolve(__dirname, './dist/es'),
         },
         {
           format: 'cjs',
@@ -24,23 +24,23 @@ export default defineConfig({
           //让打包目录和我们目录对应
           preserveModules: true,
           //配置打包根目录
-          dir: resolve(__dirname, './dist/lib')
-        }
-      ]
+          dir: resolve(__dirname, './dist/lib'),
+        },
+      ],
     },
     lib: {
       entry: './index.ts',
-      name: '@fe-ui/utils'
-    }
+      name: '@fix-ui/utils',
+    },
   },
 
   plugins: [
     dts({
       outputDir: [
         resolve(__dirname, './dist/es'),
-        resolve(__dirname, './dist/lib')
+        resolve(__dirname, './dist/lib'),
       ],
-      tsConfigFilePath: '../../tsconfig.json'
-    })
-  ]
+      tsConfigFilePath: '../../tsconfig.json',
+    }),
+  ],
 });

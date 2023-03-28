@@ -1,4 +1,4 @@
-import { withInstall } from '@fe-ui/utils';
+import { withInstall } from '@fix-ui/utils';
 import _Button from './button.vue';
 
 export const Button = withInstall(_Button);
