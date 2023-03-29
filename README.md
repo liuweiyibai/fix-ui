@@ -72,4 +72,5 @@ pnpm run release
 
 ```bash
 pnpm run changeset # 将 changeset 生成文件一起提交
+git push
 ```
