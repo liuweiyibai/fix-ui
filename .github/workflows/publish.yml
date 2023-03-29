@@ -35,7 +35,7 @@ jobs:
 
       # 安装依赖
       - name: Install dependencies
-        run: pnpm install --registry https://registry.npmjs.org/
+        run: pnpm install --registry https://registry.npmmirror.com/
       # 打包
       - name: Build Packages
         run: pnpm run build
