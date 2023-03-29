@@ -1,5 +1,11 @@
 # @fix-ui/utils
 
+## 1.1.3
+
+### Patch Changes
+
+- 5d8a603: test ci
+
 ## 1.1.2
 
 ### Patch Changes
