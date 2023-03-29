@@ -67,3 +67,9 @@ pnpm run change
 pnpm run change:version
 pnpm run release
 ```
+
+## 使用 github ci 自动构建
+
+```bash
+pnpm run changeset # 将 changeset 生成文件一起提交
+```

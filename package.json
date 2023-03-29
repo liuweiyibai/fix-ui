@@ -7,10 +7,10 @@
     "build:ui": "pnpm --filter @fix-ui/ui build:ui",
     "build:utils": "pnpm --filter @fix-ui/utils build",
     "build:hooks": "pnpm --filter @fix-ui/hooks build",
-    "gen": "pnpm run \"/^build:.*/\"",
+    "build": "pnpm run \"/^build:.*/\"",
     "change": "changeset add",
     "change:version": "changeset version",
-    "release": "pnpm gen && pnpm release:only",
+    "release": "pnpm build && pnpm release:only",
     "release:only": "changeset publish"
   },
   "keywords": [],
