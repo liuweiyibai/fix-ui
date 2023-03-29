@@ -27,7 +27,6 @@ jobs:
         with:
           node-version: 16
 
-      # 设置 pnpm。指定版本7.0，不然会报错
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.2.4
         with:
@@ -36,6 +35,7 @@ jobs:
       # 安装依赖
       - name: Install dependencies
         run: pnpm install --registry https://registry.npmmirror.com/
+
       # 打包
       - name: Build Packages
         run: pnpm run build
