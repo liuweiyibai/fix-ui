@@ -39,6 +39,15 @@ jobs:
       # 打包
       - name: Build Packages
         run: pnpm run build
+
+      # 写入 npm token
+      - name: Creating .npmrc
+        run: |
+          cat << EOF > "$HOME/.npmrc"
+            //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          EOF
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       # 这一步是最重要的。使用changesets/action自动创建 PR 或者发布
       - name: Create Release Pull Request or Publish
         id: changesets
@@ -54,4 +63,4 @@ jobs:
           # GITHUB_TOKEN 是 CI 里自带的默认 token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # NPM_TOKEN 需要稍后在 npm 网站生成。
-          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          # NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
