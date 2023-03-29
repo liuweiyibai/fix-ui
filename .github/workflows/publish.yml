@@ -25,7 +25,7 @@ jobs:
       - name: Setup PNPM
         uses: pnpm/action-setup@v2.2.1
         with:
-          version: ^7.0
+          version: ^7.30.0
 
       # 设置 Node
       - name: Setup Node
@@ -35,7 +35,7 @@ jobs:
           cache: "pnpm"
       # 安装依赖
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --registry https://registry.npmjs.org/
       # 打包
       - name: Build Packages
         run: pnpm run build
