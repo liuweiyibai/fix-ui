@@ -5,8 +5,7 @@ import { App } from 'vue';
 export default {
   install: (app: App) => {
     for (const c in components) {
-      // @ts-ignore
-      app.use(components[c]);
+      app.use((components as any)[c]);
     }
   },
 };

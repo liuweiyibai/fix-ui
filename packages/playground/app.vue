@@ -1,7 +1,7 @@
 <template>
   <div>
-    <fe-button>你好</fe-button>
-    <fe-table></fe-table>
+    <fix-button>你好</fix-button>
+    <fix-table></fix-table>
   </div>
 </template>
 <script lang="ts" setup></script>

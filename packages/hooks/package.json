@@ -2,8 +2,8 @@
   "name": "@fix-ui/hooks",
   "version": "1.0.3",
   "description": "hooks",
-  "main": "index.ts",
-  "module": "index.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
   "publishConfig": {
     "main": "./dist/lib/index.js",
     "module": "./dist/es/index.js"

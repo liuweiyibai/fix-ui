@@ -28,7 +28,7 @@ export function FixUiResolver(
       if (options.exclude && name.match(options.exclude)) return;
 
       if (/^Fix[A-Z]/.test(name)) {
-        const compName = name.slice(2);
+        const compName = name.slice(3);
         const partialName = kebabCase(compName);
 
         return {

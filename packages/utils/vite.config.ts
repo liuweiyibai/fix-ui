@@ -6,7 +6,8 @@ export default defineConfig({
     //压缩
     minify: false,
     rollupOptions: {
-      input: ['index.ts'],
+      external: ['vue', 'json-bigint', 'axios'],
+      input: ['./src/index.ts'],
       output: [
         {
           format: 'es',
@@ -29,7 +30,7 @@ export default defineConfig({
       ],
     },
     lib: {
-      entry: './index.ts',
+      entry: './src/index.ts',
       name: '@fix-ui/utils',
     },
   },

@@ -2,14 +2,15 @@
 
 ## Button 按钮
 
-<fe-button>默认按钮</fe-button>
+<fix-button>默认按钮</fix-button>
 
-<fe-button type="primary">默认按钮</fe-button>
+<fix-button type="primary">默认按钮</fix-button>
 
 ::: details 显示代码
 
 ```html
-<fe-button>默认按钮</fe-button> <fe-button type="primary">默认按钮</fe-button>
+<fix-button>默认按钮</fix-button>
+<fix-button type="primary">默认按钮</fix-button>
 ```
 
 :::

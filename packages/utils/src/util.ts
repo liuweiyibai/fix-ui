@@ -5,14 +5,14 @@ import { AxiosResponse } from 'axios';
  * @param seconds
  * @returns
  */
-export function getMinutesTo0000(seconds: number): string {
+export const getMinutesTo0000 = (seconds: number): string => {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
   const formattedMinutes = (minutes < 10 ? '0' : '') + minutes;
   const formattedSeconds =
     (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
   return formattedMinutes + ':' + formattedSeconds;
-}
+};
 
 /**
  * 通用 XMLHttpRequest 下载函数
@@ -21,11 +21,11 @@ export function getMinutesTo0000(seconds: number): string {
  * @param callback
  * @returns
  */
-export function convertRes2Blob(
+export const convertRes2Blob = (
   response: AxiosResponse,
   _filename?: string,
   callback?: () => void
-) {
+) => {
   if (!response?.data?.size) return;
   // 提取文件名
   const filename =
@@ -53,23 +53,23 @@ export function convertRes2Blob(
   window.URL.revokeObjectURL(blobURL);
 
   callback?.();
-}
+};
 
 /**
  * 通过流的方式预览本地文件，比如图片，发返回解析的 bolb 地址，用作预览
  * @param callback
  * @returns
  */
-export async function getPrivateFileByStream(
+export const getPrivateFileByStream = async (
   response: AxiosResponse,
   _filename?: string,
   callback?: () => void
-) {
+) => {
   const blob = new Blob([response.data], { type: 'application/octet-stream' });
   const url = URL.createObjectURL(blob);
   callback?.();
   return url;
-}
+};
 
 /**
  * 根据生日计算年龄
@@ -115,10 +115,10 @@ export const getAge = (birthday: string): string | number => {
 
 /**
  * 获取今天周几
- * @param week Dayjs().getWeekday()
+ * @param week dayjs.day()
  * @returns
  */
-export function getWeekZhText(week: number): string {
+export const getWeekZhText = (week: number): string => {
   switch (week) {
     case 1:
       return '一';
@@ -135,7 +135,7 @@ export function getWeekZhText(week: number): string {
     default:
       return '日';
   }
-}
+};
 
 /**
  * 打印函数
@@ -172,9 +172,13 @@ export const printPdfByIframe = (url: string, callback?: () => void) => {
  * @param count
  * @returns
  */
-export function _setInterval(fn: () => void, millisec: number, count?: number) {
+export const _setInterval = (
+  fn: () => void,
+  millisec: number,
+  count?: number
+) => {
   let timer: NodeJS.Timeout;
-  function interval() {
+  const interval = () => {
     if (typeof count === 'undefined' || count-- > 0) {
       timer = setTimeout(interval, millisec);
       try {
@@ -184,12 +188,12 @@ export function _setInterval(fn: () => void, millisec: number, count?: number) {
         throw e.toString();
       }
     }
-  }
+  };
   timer = setTimeout(interval, millisec);
   return {
     callback: () => clearTimeout(timer),
   };
-}
+};
 
 /**
  * 手机号加 *
@@ -200,4 +204,123 @@ export const makePhoneStar = (s: any) => {
   return s.replace(/^(\d{3})\d{4}(\d+)/, '$1****$2');
 };
 
-// 计算百分比，计算占比
+/**
+ * 字符串超出多少字符后展示省略号
+ * @param str
+ * @param num
+ * @returns
+ */
+export const splitStrByNum = (str: string, num: number) => {
+  if (str.length <= num) {
+    return str;
+  }
+  return str.substring(0, num) + '...';
+};
+
+/**
+ * 计算百分比
+ * @param num
+ * @param total
+ * @returns
+ */
+export const calcPercent = (num: number, total: number) => {
+  return Math.round((num / total) * 10000) / 100.0; // 小数点后两位百分比
+};
+
+/**
+ * 根据参数将字符串分成块
+ * @param str
+ * @param chunk
+ * @returns
+ */
+export const makeChunkStr = (str: string, chunk = 4) => {
+  const resp: string[] = [];
+  for (let i = 0, j = str.length; i < j; i += chunk) {
+    resp.push(str.slice(i, i + chunk));
+  }
+  return resp;
+};
+
+/**
+ * 判断数据类型，是否为某种数据类型
+ * @param val
+ * @param type
+ * @returns
+ */
+export const is = (val: any, type: string) => {
+  return toString.call(val) === `[object ${type}]`;
+};
+
+/**
+ * 判断是不是函数类型
+ * @param val
+ * @returns
+ */
+export const isFunction = (val: any): val is typeof Function =>
+  typeof val === 'function';
+
+/**
+ * 判断类型是否为字符串
+ * @param val
+ * @returns
+ */
+export const isString = (val: any): val is string => {
+  return is(val, 'String');
+};
+
+/**
+ * 类型是否为对象
+ * @param item
+ * @returns
+ */
+export const isObject = (item: any): boolean => {
+  return item && typeof item === 'object' && !Array.isArray(item);
+};
+
+/**
+ * 是否为数组
+ * @param origin
+ * @returns
+ */
+export const isArr = (origin: any): boolean => {
+  let str = '[object Array]';
+  return Object.prototype.toString.call(origin) == str ? true : false;
+};
+
+/**
+ * 将对象转为 urlquery方式
+ * @param baseUrl
+ * @param obj
+ * @returns
+ */
+export const setObjToUrlParams = (baseUrl: string, obj: any): string => {
+  let parameters = '';
+  let url = '';
+  for (const key in obj) {
+    parameters += key + '=' + encodeURIComponent(obj[key]) + '&';
+  }
+  parameters = parameters.replace(/&$/, '');
+  if (/\?$/.test(baseUrl)) {
+    url = baseUrl + parameters;
+  } else {
+    url = baseUrl.replace(/\/?$/, '?') + parameters;
+  }
+  return url;
+};
+
+/**
+ * 对象深度合并
+ * @param src
+ * @param target
+ * @returns
+ */
+export const deepMerge = <T = any>(src: any, target: any): T => {
+  let key: string;
+  for (key in target) {
+    src[key] =
+      src[key] && src[key].toString() === '[object Object]'
+        ? deepMerge(src[key], target[key])
+        : (src[key] = target[key]);
+  }
+  return src;
+};
