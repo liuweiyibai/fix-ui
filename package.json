@@ -21,8 +21,6 @@
   "license": "ISC",
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
-    "@commitlint/cli": "^17.5.1",
-    "@commitlint/config-conventional": "^17.4.4",
     "@types/gulp": "^4.0.10",
     "@types/gulp-autoprefixer": "^0.0.33",
     "@types/gulp-less": "^0.0.32",
@@ -31,9 +29,11 @@
     "@typescript-eslint/parser": "^5.57.0",
     "@vitejs/plugin-vue": "^4.1.0",
     "@vue/runtime-core": "^3.2.47",
+    "@commitlint/cli": "^17.5.1",
+    "@commitlint/config-conventional": "^17.4.4",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^7.0.0",
+    "cz-conventional-changelog-zh": "^0.0.2",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -57,10 +57,5 @@
       "eslint --fix",
       "prettier --write"
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    }
   }
 }
