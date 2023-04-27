@@ -1,0 +1,49 @@
+.fix-digital-clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1e1e1e;
+  box-sizing: border-box;
+  padding: 0 20px;
+  width: fit-content;
+  overflow: hidden;
+
+  @height: 32px;
+  @font-size: 24px;
+  @font-size-big: 28px;
+
+  .fix-clock-char {
+    height: @height;
+    position: relative;
+    width: 20px;
+
+    &.is-colon {
+      color: white;
+      font-size: @font-size;
+      line-height: @height;
+    }
+
+    .fix-clock-char--slider {
+      display: flex;
+      flex-direction: column;
+      left: 0px;
+      position: absolute;
+      top: 0px;
+      transition: top 200ms;
+
+      .fix-clock-char--slider-option {
+        color: white;
+        font-size: @font-size;
+        height: @height;
+        line-height: @height;
+        opacity: 0.05;
+        transition: opacity 400ms, font-size 400ms;
+
+        &.active {
+          font-size: @font-size-big;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

@@ -7,8 +7,18 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "declaration": true,
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "rootDir": ".",
+    "allowJs": true,
+    "noEmit": true,
     "moduleResolution": "Node",
     "lib": ["esnext", "dom"],
     "types": ["unplugin-vue-define-options/macros-global"]
-  }
+  },
+  "exclude": ["node_modules", "dist"]
 }

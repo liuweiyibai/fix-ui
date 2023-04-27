@@ -9,8 +9,7 @@ export const getMinutesTo0000 = (seconds: number): string => {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
   const formattedMinutes = (minutes < 10 ? '0' : '') + minutes;
-  const formattedSeconds =
-    (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
+  const formattedSeconds = (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
   return formattedMinutes + ':' + formattedSeconds;
 };
 
@@ -21,16 +20,10 @@ export const getMinutesTo0000 = (seconds: number): string => {
  * @param callback
  * @returns
  */
-export const convertRes2Blob = (
-  response: AxiosResponse,
-  _filename?: string,
-  callback?: () => void
-) => {
+export const convertRes2Blob = (response: AxiosResponse, _filename?: string, callback?: () => void) => {
   if (!response?.data?.size) return;
   // 提取文件名
-  const filename =
-    _filename ||
-    response.headers['content-disposition']?.match(/filename=(.*)/)[1];
+  const filename = _filename || response.headers['content-disposition']?.match(/filename=(.*)/)[1];
   // 将二进制流转为blob
   const blob = new Blob([response.data], { type: 'application/octet-stream' });
   // 创建新的URL并指向File对象或者Blob对象的地址
@@ -60,11 +53,7 @@ export const convertRes2Blob = (
  * @param callback
  * @returns
  */
-export const getPrivateFileByStream = async (
-  response: AxiosResponse,
-  _filename?: string,
-  callback?: () => void
-) => {
+export const getPrivateFileByStream = (response: AxiosResponse, _filename?: string, callback?: () => void) => {
   const blob = new Blob([response.data], { type: 'application/octet-stream' });
   const url = URL.createObjectURL(blob);
   callback?.();
@@ -76,7 +65,7 @@ export const getPrivateFileByStream = async (
  * @param birthday 1995-12-21
  * @returns
  */
-export const getAge = (birthday: string): string | number => {
+export const getAgeByBirth = (birthday: string): string | number => {
   let age;
   const birthdayArr = birthday.split('-') as unknown as number[];
   const birthdayYear = birthdayArr[0];
@@ -150,7 +139,7 @@ export const printPdfByIframe = (url: string, callback?: () => void) => {
 
   pdf.setAttribute(
     'style',
-    `display: none;position: fixed;top:0px;left: 0px;bottom: 0px;right: 0px;width: 100%;height: 100%;border: none;margin: 0px;padding: 0px;overflow: hidden;`
+    `display: none;position: fixed;top:0px;left: 0px;bottom: 0px;right: 0px;width: 100%;height: 100%;border: none;margin: 0px;padding: 0px;overflow: hidden;`,
   );
 
   document.body.append(pdf);
@@ -172,11 +161,7 @@ export const printPdfByIframe = (url: string, callback?: () => void) => {
  * @param count
  * @returns
  */
-export const _setInterval = (
-  fn: () => void,
-  millisec: number,
-  count?: number
-) => {
+export const _setInterval = (fn: () => void, millisec: number, count?: number) => {
   let timer: NodeJS.Timeout;
   const interval = () => {
     if (typeof count === 'undefined' || count-- > 0) {
@@ -256,8 +241,7 @@ export const is = (val: any, type: string) => {
  * @param val
  * @returns
  */
-export const isFunction = (val: any): val is typeof Function =>
-  typeof val === 'function';
+export const isFunction = (val: any): val is typeof Function => typeof val === 'function';
 
 /**
  * 判断类型是否为字符串
@@ -283,7 +267,7 @@ export const isObject = (item: any): boolean => {
  * @returns
  */
 export const isArr = (origin: any): boolean => {
-  let str = '[object Array]';
+  const str = '[object Array]';
   return Object.prototype.toString.call(origin) == str ? true : false;
 };
 
@@ -324,3 +308,27 @@ export const deepMerge = <T = any>(src: any, target: any): T => {
   }
   return src;
 };
+
+/**
+ * @description 根据身份证号自动生成性别、出生日期和年龄
+ * @param {string} idCard 身份证号
+ * @returns
+ */
+export function parseIdCard(idCard: string) {
+  const birthYear = parseInt(idCard.substr(6, 4), 10);
+  const birthMonth = parseInt(idCard.substr(10, 2), 10) - 1;
+  const birthDay = parseInt(idCard.substr(12, 2), 10);
+  const genderCode = parseInt(idCard.substr(16, 1), 10);
+  const gender = genderCode % 2 === 0 ? '女' : '男';
+  const birthDate = new Date(birthYear, birthMonth, birthDay);
+  const now = new Date();
+  const age =
+    now.getFullYear() -
+    birthYear -
+    (now.getMonth() < birthMonth || (now.getMonth() === birthMonth && now.getDate() < birthDay) ? 1 : 0);
+  return {
+    gender,
+    birthDate,
+    age,
+  };
+}
