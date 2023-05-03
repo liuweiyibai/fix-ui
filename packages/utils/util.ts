@@ -1,4 +1,4 @@
-import { AxiosResponse } from 'axios';
+import { AxiosResponse } from "axios";
 
 /**
  * 格式化秒数为 '00:00' 格式
@@ -8,10 +8,10 @@ import { AxiosResponse } from 'axios';
 export function getMinutesTo0000(seconds: number): string {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
-  const formattedMinutes = (minutes < 10 ? '0' : '') + minutes;
+  const formattedMinutes = (minutes < 10 ? "0" : "") + minutes;
   const formattedSeconds =
-    (remainingSeconds < 10 ? '0' : '') + remainingSeconds;
-  return formattedMinutes + ':' + formattedSeconds;
+    (remainingSeconds < 10 ? "0" : "") + remainingSeconds;
+  return formattedMinutes + ":" + formattedSeconds;
 }
 
 /**
@@ -30,20 +30,20 @@ export function convertRes2Blob(
   // 提取文件名
   const filename =
     _filename ||
-    response.headers['content-disposition']?.match(/filename=(.*)/)[1];
+    response.headers["content-disposition"]?.match(/filename=(.*)/)[1];
   // 将二进制流转为blob
-  const blob = new Blob([response.data], { type: 'application/octet-stream' });
+  const blob = new Blob([response.data], { type: "application/octet-stream" });
   // 创建新的URL并指向File对象或者Blob对象的地址
   const blobURL = window.URL.createObjectURL(blob);
   // 创建a标签，用于跳转至下载链接
-  const tempLink = document.createElement('a');
-  tempLink.style.display = 'none';
+  const tempLink = document.createElement("a");
+  tempLink.style.display = "none";
   tempLink.href = blobURL;
 
-  tempLink.setAttribute('download', decodeURIComponent(filename));
+  tempLink.setAttribute("download", decodeURIComponent(filename));
   // 兼容：某些浏览器不支持HTML5的download属性
-  if (typeof tempLink.download === 'undefined') {
-    tempLink.setAttribute('target', '_blank');
+  if (typeof tempLink.download === "undefined") {
+    tempLink.setAttribute("target", "_blank");
   }
   // 挂载a标签
   document.body.appendChild(tempLink);
@@ -65,7 +65,7 @@ export async function getPrivateFileByStream(
   _filename?: string,
   callback?: () => void
 ) {
-  const blob = new Blob([response.data], { type: 'application/octet-stream' });
+  const blob = new Blob([response.data], { type: "application/octet-stream" });
   const url = URL.createObjectURL(blob);
   callback?.();
   return url;
@@ -78,7 +78,7 @@ export async function getPrivateFileByStream(
  */
 export const getAge = (birthday: string): string | number => {
   let age;
-  const birthdayArr = birthday.split('-') as unknown as number[];
+  const birthdayArr = birthday.split("-") as unknown as number[];
   const birthdayYear = birthdayArr[0];
   const birthdayMonth = birthdayArr[1];
   const birthdayDay = birthdayArr[2];
@@ -107,7 +107,7 @@ export const getAge = (birthday: string): string | number => {
         }
       }
     } else {
-      age = '未知'; // 返回-1 表示出生日期输入错误 晚于今天
+      age = "未知"; // 返回-1 表示出生日期输入错误 晚于今天
     }
   }
   return age; // 返回周岁年龄
@@ -121,19 +121,19 @@ export const getAge = (birthday: string): string | number => {
 export function getWeekZhText(week: number): string {
   switch (week) {
     case 1:
-      return '一';
+      return "一";
     case 2:
-      return '二';
+      return "二";
     case 3:
-      return '三';
+      return "三";
     case 4:
-      return '四';
+      return "四";
     case 5:
-      return '五';
+      return "五";
     case 6:
-      return '六';
+      return "六";
     default:
-      return '日';
+      return "日";
   }
 }
 
@@ -143,13 +143,13 @@ export function getWeekZhText(week: number): string {
  * @param callback
  */
 export const printPdfByIframe = (url: string, callback?: () => void) => {
-  const pdf = document.createElement('iframe');
+  const pdf = document.createElement("iframe");
   pdf.src = url;
-  pdf.name = 'print_frame';
-  pdf.id = 'print_frame';
+  pdf.name = "print_frame";
+  pdf.id = "print_frame";
 
   pdf.setAttribute(
-    'style',
+    "style",
     `display: none;position: fixed;top:0px;left: 0px;bottom: 0px;right: 0px;width: 100%;height: 100%;border: none;margin: 0px;padding: 0px;overflow: hidden;`
   );
 
@@ -175,7 +175,7 @@ export const printPdfByIframe = (url: string, callback?: () => void) => {
 export function _setInterval(fn: () => void, millisec: number, count?: number) {
   let timer: NodeJS.Timeout;
   function interval() {
-    if (typeof count === 'undefined' || count-- > 0) {
+    if (typeof count === "undefined" || count-- > 0) {
       timer = setTimeout(interval, millisec);
       try {
         fn();
@@ -197,7 +197,65 @@ export function _setInterval(fn: () => void, millisec: number, count?: number) {
  * @returns
  */
 export const makePhoneStar = (s: any) => {
-  return s.replace(/^(\d{3})\d{4}(\d+)/, '$1****$2');
+  return s.replace(/^(\d{3})\d{4}(\d+)/, "$1****$2");
 };
 
-// 计算百分比，计算占比
+// 计算百分比，计算占比，使用 big.js
+
+/**
+ * 将 html 转义为普通字符串，此方法用来将用户输入内容中的尖括号、引号等进行转义
+ * @param str
+ * @returns
+ */
+export function htmlEncode(str: string) {
+  let s = "";
+  if (str.length == 0) return "";
+  s = str.replace(/&/g, "&gt;");
+  s = s.replace(/</g, "&lt;");
+  s = s.replace(/>/g, "&gt;");
+  s = s.replace(/ /g, "&nbsp;");
+  s = s.replace(/\'/g, "&#39;");
+  s = s.replace(/\"/g, "&quot;");
+  s = s.replace(/\n/g, "<br>");
+  return s;
+}
+
+/**
+ * 将字符串 反转义为 html
+ * @param str
+ * @returns
+ */
+export function htmlDecode(str: string) {
+  let s = "";
+  if (str.length == 0) return "";
+  s = str.replace(/&gt;/g, "&");
+  s = s.replace(/&lt;/g, "<");
+  s = s.replace(/&gt;/g, ">");
+  s = s.replace(/&nbsp;/g, " ");
+  s = s.replace(/&#39;/g, "'");
+  s = s.replace(/&quot;/g, '"');
+  s = s.replace(/<br>/g, "\n");
+  return s;
+}
+
+/**
+ * html 转义为普通字符串，实现2
+ * @param str
+ * @returns
+ */
+export function htmlEncode2(str: string) {
+  const div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
+/**
+ * 将字符串 反转义为 html
+ * @param str
+ * @returns
+ */
+export function htmlDecode2(str: string) {
+  const div = document.createElement("div");
+  div.innerHTML = str;
+  return div.innerHTML;
+}
