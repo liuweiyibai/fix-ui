@@ -1,7 +1,7 @@
 import { nextTick, onMounted, onUnmounted, Ref, unref } from 'vue';
 import type { EChartsOption } from 'echarts';
 import { SVGRenderer, CanvasRenderer } from 'echarts/renderers';
-import { echarts } from '@fix-ui/utils/src';
+import * as echarts from 'echarts/core';
 
 export enum RenderType {
   SVGRenderer = 'SVGRenderer',
@@ -25,13 +25,14 @@ export interface UseChartsOptionType {
   theme?: ThemeType;
 }
 
-export default function useChart(
+export function useChart(
   elRef: Ref<HTMLDivElement>,
   autoChartSize = false,
-  animation: boolean = false,
+  animation = false,
   render: RenderType = RenderType.SVGRenderer,
-  theme: ThemeType = ThemeType.Default
+  theme: ThemeType = ThemeType.Default,
 ) {
+  echarts;
   // 渲染模式
   echarts.use(render === RenderType.SVGRenderer ? SVGRenderer : CanvasRenderer);
   // echart实例
@@ -78,7 +79,7 @@ export default function useChart(
     if (animation) {
       elRef.value.style.transition = 'width 1s, height 1s';
     }
-    const resizeObserver = new ResizeObserver(entries => resize());
+    const resizeObserver = new ResizeObserver((entries) => resize());
     resizeObserver.observe(elRef.value);
   }
 

@@ -6,7 +6,7 @@ export default defineConfig({
     //压缩
     minify: false,
     rollupOptions: {
-      external: ['vue', 'ant-design-vue', 'axios'],
+      external: ['vue', 'ant-design-vue', 'axios', 'echarts/renderers', 'echarts/core'],
       input: ['./src/index.ts'],
       output: [
         {
@@ -37,10 +37,7 @@ export default defineConfig({
 
   plugins: [
     dts({
-      outputDir: [
-        resolve(__dirname, './dist/es'),
-        resolve(__dirname, './dist/lib'),
-      ],
+      outputDir: [resolve(__dirname, './dist/es'), resolve(__dirname, './dist/lib')],
       tsConfigFilePath: '../../tsconfig.json',
     }),
   ],

@@ -6,7 +6,7 @@ export default defineConfig({
     //压缩
     minify: false,
     rollupOptions: {
-      external: ['vue', 'json-bigint', 'axios'],
+      external: ['vue', 'json-bigint', 'axios', 'echarts', 'mitt'],
       input: ['./src/index.ts'],
       output: [
         {
@@ -37,10 +37,7 @@ export default defineConfig({
 
   plugins: [
     dts({
-      outputDir: [
-        resolve(__dirname, './dist/es'),
-        resolve(__dirname, './dist/lib'),
-      ],
+      outputDir: [resolve(__dirname, './dist/es'), resolve(__dirname, './dist/lib')],
       tsConfigFilePath: '../../tsconfig.json',
     }),
   ],

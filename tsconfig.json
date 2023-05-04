@@ -3,8 +3,8 @@
     "baseUrl": ".",
     "jsx": "preserve",
     "strict": true,
-    "target": "ES2015",
-    "module": "ESNext",
+    "target": "esnext",
+    "module": "esnext",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "declaration": true,
@@ -17,7 +17,7 @@
     "allowJs": true,
     "noEmit": true,
     "moduleResolution": "Node",
-    "lib": ["esnext", "dom"],
+    "lib": ["esnext", "dom", "scripthost"],
     "types": ["unplugin-vue-define-options/macros-global"]
   },
   "exclude": ["node_modules", "dist"]
